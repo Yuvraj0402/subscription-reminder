@@ -1,6 +1,4 @@
-
 package com.example.subscriptionreminder.entity;
-
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.math.BigDecimal;

@@ -1,6 +1,4 @@
-
 package com.example.subscriptionreminder.controller;
-
 import com.example.subscriptionreminder.entity.Subscription;
 import com.example.subscriptionreminder.service.SubscriptionService;
 import jakarta.validation.Valid;
@@ -18,7 +16,6 @@ public class SubscriptionController {
     public SubscriptionController(SubscriptionService service) {
         this.service = service;
     }
-
     @GetMapping
     public String list(Model model) {
         model.addAttribute("subscriptions", service.getActive());

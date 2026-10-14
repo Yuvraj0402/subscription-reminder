@@ -1,6 +1,4 @@
-
 package com.example.subscriptionreminder.service;
-
 import com.example.subscriptionreminder.entity.Subscription;
 import com.example.subscriptionreminder.repository.SubscriptionRepository;
 import org.springframework.stereotype.Service;
