@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscriptions | SubTrack</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="module" src="/js/subscriptions.js"></script>
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar">
+        <a class="brand" href="/subscriptions">
+            <span class="brand-icon">S</span>
+            <span>SubTrack<span class="brand-dot">.</span></span>
+        </a>
+
+        <div class="sidebar-label">WORKSPACE</div>
+
+        <a class="nav-link active" href="/subscriptions">
+            <span>▦</span> Overview
+        </a>
+        <a class="nav-link" href="/subscription-form">
+            <span>＋</span> Add subscription
+        </a>
+
+        <div class="sidebar-bottom">
+            <div class="sidebar-help">
+                <div class="help-icon">✦</div>
+                <strong>Stay on top of it</strong>
+                <p>Keep your recurring expenses organized in one place.</p>
+            </div>
+            <button id="logoutButton" class="btn btn-ghost btn-full">
+                ↗ Sign out
+            </button>
+        </div>
+    </aside>
+
+    <main class="main-content">
+        <header class="topbar">
+            <div>
+                <div class="eyebrow">YOUR FINANCIAL SPACE</div>
+                <h1>Subscription overview</h1>
+                <p class="muted">A clearer picture of your recurring expenses.</p>
+            </div>
+            <div class="profile-chip">
+                <div class="avatar" id="userAvatar">U</div>
+                <div class="profile-info">
+                    <strong id="userName">Loading...</strong>
+                    <span>Personal account</span>
+                </div>
+            </div>
+        </header>
+
+        <section class="welcome-banner">
+            <div class="welcome-content">
+                <span class="welcome-tag">YOUR MONEY, ORGANIZED</span>
+                <h2>Small subscriptions.<br>Big picture.</h2>
+                <p>Track every renewal and understand where your money goes.</p>
+                <a class="btn btn-light" href="/subscription-form">
+                    + Add a subscription
+                </a>
+            </div>
+            <div class="banner-art" aria-hidden="true">
+                <div class="orb orb-one"></div>
+                <div class="orb orb-two"></div>
+                <div class="floating-card floating-card-one">↗ <span>Track spending</span></div>
+                <div class="floating-card floating-card-two">✓ <span>Stay organized</span></div>
+                <div class="banner-symbol">₹</div>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-label">TOTAL SUBSCRIPTIONS</span>
+                    <span class="stat-icon purple">▦</span>
+                </div>
+                <div class="stat-value" id="totalSubscriptions">0</div>
+                <div class="stat-foot">Subscriptions you're tracking</div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-label">MONTHLY SPENDING</span>
+                    <span class="stat-icon blue">₹</span>
+                </div>
+                <div class="stat-value" id="monthlyTotal">₹0.00</div>
+                <div class="stat-foot">Estimated monthly equivalent</div>
+            </article>
+
+            <article class="stat-card">
+                <div class="stat-top">
+                    <span class="stat-label">UPCOMING RENEWALS</span>
+                    <span class="stat-icon orange">◷</span>
+                </div>
+                <div class="stat-value" id="upcomingTotal">0</div>
+                <div class="stat-foot">Due in the next 7 days</div>
+            </article>
+        </section>
+
+        <section class="section-heading">
+            <div>
+                <h2>Your subscriptions</h2>
+                <p class="muted">Manage the services you pay for.</p>
+            </div>
+            <a class="btn btn-primary" href="/subscription-form">+ Add new</a>
+        </section>
+
+        <div id="message" class="message hidden" role="status"></div>
+
+        <section id="subscriptionList" class="subscription-grid">
+            <div class="loading-state">Loading your subscriptions...</div>
+        </section>
+
+        <section id="emptyState" class="empty-state hidden">
+            <div class="empty-icon">✦</div>
+            <h3>Your subscription space is empty</h3>
+            <p>Add your first subscription to start tracking your recurring costs.</p>
+            <a href="/subscription-form" class="btn btn-primary">Add your first subscription</a>
+        </section>
+
+        <footer class="page-footer">
+            <span>SubTrack</span>
+            <span>Built to make recurring expenses easier to manage.</span>
+        </footer>
+    </main>
+</div>
+</body>
+</html>

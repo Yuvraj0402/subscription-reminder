@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | SubTrack</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; min-height: 100vh;
+            font-family: Arial, sans-serif;
+            background: radial-gradient(circle at top left, #172554, #080d1c 55%);
+            color: #f8fafc; display: grid; place-items: center; padding: 20px;
+        }
+        .auth-card {
+            width: 100%; max-width: 420px; padding: 36px;
+            background: rgba(15, 23, 42, .92);
+            border: 1px solid #273449; border-radius: 22px;
+            box-shadow: 0 25px 70px #0006;
+        }
+        .logo { font-size: 28px; font-weight: 800; color: #60a5fa; }
+        .subtitle { color: #94a3b8; line-height: 1.6; margin-bottom: 28px; }
+        label { display: block; margin: 18px 0 8px; color: #cbd5e1; }
+        input {
+            width: 100%; padding: 13px 14px; border-radius: 10px;
+            border: 1px solid #334155; background: #0b1220;
+            color: white; font-size: 15px; outline: none;
+        }
+        input:focus { border-color: #60a5fa; }
+        button {
+            width: 100%; padding: 14px; margin-top: 24px;
+            border: 0; border-radius: 10px; background: #3b82f6;
+            color: white; font-weight: 700; font-size: 15px; cursor: pointer;
+        }
+        button:hover { background: #2563eb; }
+        button:disabled { opacity: .6; cursor: wait; }
+        .switch { text-align: center; color: #94a3b8; margin-top: 22px; }
+        a { color: #60a5fa; text-decoration: none; }
+        #message { margin-top: 16px; color: #fca5a5; font-size: 14px; }
+    </style>
+</head>
+<body>
+<main class="auth-card">
+    <div class="logo">SubTrack.</div>
+    <h1>Welcome back</h1>
+    <p class="subtitle">Sign in to manage your subscriptions and never miss a renewal.</p>
+
+    <form id="loginForm">
+        <label for="email">Email address</label>
+        <input id="email" type="email" placeholder="you@example.com" required autocomplete="email">
+
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Enter your password" required autocomplete="current-password">
+
+        <button id="loginButton" type="submit">Sign in</button>
+        <p id="message" role="alert"></p>
+    </form>
+
+    <p class="switch">New to SubTrack? <a href="/signup.html">Create an account</a></p>
+</main>
+
+<script type="module" src="/js/login.js"></script>
+</body>
+</html>

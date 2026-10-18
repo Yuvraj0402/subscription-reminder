@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Subscription | SubTrack</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="module" src="/js/subscription-form.js"></script>
+</head>
+<body class="form-page">
+<div class="form-page-shell">
+    <header class="form-topbar">
+        <a class="brand" href="/subscriptions">
+            <span class="brand-icon">S</span>
+            <span>SubTrack<span class="brand-dot">.</span></span>
+        </a>
+        <a class="back-link" href="/subscriptions">← Back to overview</a>
+    </header>
+
+    <main class="form-layout">
+        <section class="form-intro">
+            <div class="intro-orb"></div>
+            <span class="welcome-tag">SUBSCRIPTION MANAGER</span>
+            <h1 id="formHeading">Make every renewal count.</h1>
+            <p>Add your recurring services, record their billing details, and keep your monthly spending visible.</p>
+
+            <div class="form-tip">
+                <span class="tip-icon">✦</span>
+                <div>
+                    <strong>A little clarity goes a long way.</strong>
+                    <p>Your dashboard calculates an estimated monthly cost for each billing cycle.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="form-panel">
+            <div class="form-panel-heading">
+                <div class="form-icon">＋</div>
+                <div>
+                    <h2 id="panelHeading">Add subscription</h2>
+                    <p class="muted">Enter your subscription details below.</p>
+                </div>
+            </div>
+
+            <div id="message" class="message hidden" role="status"></div>
+
+            <form id="subscriptionForm">
+                <div class="form-group">
+                    <label for="serviceName">Service name</label>
+                    <input
+                            id="serviceName"
+                            name="serviceName"
+                            type="text"
+                            placeholder="e.g. Netflix, Spotify, YouTube Premium"
+                            maxlength="80"
+                            required
+                    >
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cost">Price (₹)</label>
+                        <input
+                                id="cost"
+                                name="cost"
+                                type="number"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="499"
+                                required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="billingCycle">Billing cycle</label>
+                        <select id="billingCycle" name="billingCycle" required>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Yearly">Yearly</option>
+                            <option value="Weekly">Weekly</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="renewalDate">Next renewal date</label>
+                    <input id="renewalDate" name="renewalDate" type="date" required>
+                    <span class="field-hint">Choose the next date on which the service renews.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">Notes <span class="optional">(optional)</span></label>
+                    <textarea
+                            id="notes"
+                            name="notes"
+                            rows="3"
+                            maxlength="300"
+                            placeholder="Any useful details about this subscription..."
+                    ></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <a href="/subscriptions" class="btn btn-ghost">Cancel</a>
+                    <button id="saveButton" type="submit" class="btn btn-primary">
+                        Save subscription →
+                    </button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer class="page-footer form-footer">
+        <span>SubTrack</span>
+        <span>Your subscriptions, all in one place.</span>
+    </footer>
+</div>
+</body>
+</html>

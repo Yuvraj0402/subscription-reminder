@@ -1,3 +1,4 @@
+
 package com.example.subscriptionreminder;
 
 import org.springframework.boot.SpringApplication;
@@ -9,5 +10,4 @@ public class SubscriptionReminderApplication {
     public static void main(String[] args) {
         SpringApplication.run(SubscriptionReminderApplication.class, args);
     }
-
 }

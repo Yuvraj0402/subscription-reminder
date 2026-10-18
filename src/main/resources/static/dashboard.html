@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | SubTrack</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; min-height: 100vh; font-family: Arial, sans-serif;
+            background: #080d1c; color: #f8fafc;
+        }
+        header {
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 16px; padding: 22px 6%; border-bottom: 1px solid #1e293b;
+        }
+        .logo { color: #60a5fa; font-size: 25px; font-weight: 800; }
+        header button, .primary {
+            background: #3b82f6; color: white; border: 0; border-radius: 9px;
+            padding: 11px 17px; font-weight: 700; cursor: pointer;
+        }
+        main { max-width: 1100px; margin: auto; padding: 38px 22px; }
+        .muted { color: #94a3b8; }
+        .summary {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px; margin: 28px 0;
+        }
+        .panel, .stat {
+            background: #111a2e; border: 1px solid #26334a;
+            border-radius: 16px; padding: 22px;
+        }
+        .stat p { color: #94a3b8; margin: 0 0 12px; }
+        .stat h2 { margin: 0; font-size: 29px; }
+        .content {
+            display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 1.5fr);
+            gap: 22px; align-items: start;
+        }
+        label { display: block; color: #cbd5e1; margin: 16px 0 7px; }
+        input, select {
+            width: 100%; padding: 12px; border-radius: 9px;
+            background: #0b1220; color: white; border: 1px solid #334155;
+        }
+        .primary { width: 100%; margin-top: 20px; padding: 13px; }
+        .subscription {
+            display: flex; justify-content: space-between; align-items: center;
+            gap: 14px; margin-top: 14px; padding: 17px;
+            background: #0b1220; border: 1px solid #26334a; border-radius: 12px;
+        }
+        .subscription h3 { margin: 0 0 8px; }
+        .subscription p { margin: 0; color: #94a3b8; font-size: 14px; line-height: 1.6; }
+        .price { color: #93c5fd !important; font-size: 18px !important; font-weight: 700; }
+        .delete {
+            padding: 9px 11px; background: #7f1d1d; color: white;
+            border: 0; border-radius: 8px; cursor: pointer;
+        }
+        #message { color: #fca5a5; margin-top: 14px; }
+        #empty { color: #94a3b8; padding: 20px 0; }
+        @media (max-width: 720px) {
+            .content { grid-template-columns: 1fr; }
+            header { padding: 18px 5%; }
+            main { padding: 26px 16px; }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="logo">SubTrack.</div>
+    <button id="logoutButton" type="button">Sign out</button>
+</header>
+
+<main>
+    <h1>Your subscription dashboard</h1>
+    <p class="muted">Welcome, <span id="userName">loading...</span>. Keep track of your recurring payments.</p>
+
+    <section class="summary">
+        <div class="stat">
+            <p>Active subscriptions</p>
+            <h2 id="totalSubscriptions">0</h2>
+        </div>
+        <div class="stat">
+            <p>Total monthly cost</p>
+            <h2 id="monthlyTotal">₹0.00</h2>
+        </div>
+    </section>
+
+    <section class="content">
+        <div class="panel">
+            <h2>Add subscription</h2>
+            <p class="muted">Record a service and its renewal date.</p>
+
+            <form id="subscriptionForm">
+                <label for="serviceName">Service name</label>
+                <input id="serviceName" type="text" placeholder="e.g. Netflix" required>
+
+                <label for="cost">Price (₹)</label>
+                <input id="cost" type="number" min="0.01" step="0.01" placeholder="199" required>
+
+                <label for="billingCycle">Billing cycle</label>
+                <select id="billingCycle" required>
+                    <option value="Monthly">Monthly</option>
+                    <option value="Yearly">Yearly</option>
+                    <option value="Weekly">Weekly</option>
+                </select>
+
+                <label for="renewalDate">Next renewal date</label>
+                <input id="renewalDate" type="date" required>
+
+                <button class="primary" id="addButton" type="submit">+ Add subscription</button>
+                <p id="message" role="alert"></p>
+            </form>
+        </div>
+
+        <div class="panel">
+            <h2>Your subscriptions</h2>
+            <p class="muted">Your saved subscriptions will appear here.</p>
+            <div id="subscriptionList">
+                <p id="empty">Loading subscriptions...</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<script type="module" src="/js/dashboard.js"></script>
+</body>
+</html>
